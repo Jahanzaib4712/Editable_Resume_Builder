@@ -32,21 +32,28 @@ export default function MultiStepForm() {
    const nextStep = () => setStep(step + 1);
    const prevStep = () => setStep(step - 1);
 
-   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { id, type, value, checked} = event.target as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+ 
+
+const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const { id, type, value } = event.target;
   
-    if (type === 'checkbox') {
-      setFormData(prevData => ({
-        ...prevData,
-        [id]: checked
-      }));
-    } else {
-      setFormData(prevData => ({
-        ...prevData,
-        [id]: value
-      }));
-    }
-  };
+  // Handle checkbox separately
+  if (type === 'checkbox') {
+    const checked = (event.target as HTMLInputElement).checked; // Explicitly cast to HTMLInputElement
+    setFormData(prevData => ({
+      ...prevData,
+      [id]: checked
+    }));
+  } else {
+    setFormData(prevData => ({
+      ...prevData,
+      [id]: value
+    }));
+  }
+};
+
+
+
   
 
   const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
