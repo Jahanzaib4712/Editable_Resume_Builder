@@ -1,9 +1,9 @@
-import Image from "next/image";
+// import Image from "next/image";
 "use client";
 import { useState } from "react";
 import {jsPDF} from 'jspdf'
-import { read } from "fs";
-import next from "next/types";
+// import { read } from "fs";
+// import next from "next/types";
 
 
 
@@ -48,13 +48,6 @@ export default function MultiStepForm() {
     }
   };
   
-  // const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   const file = event.target.files?.[0]?.name || '';
-  //   setFormData(prevData => ({
-  //     ...prevData,
-  //     image: file
-  //   }));
-  // };
 
   const handleSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -137,15 +130,10 @@ doc.save("cv.pdf");
     
 
 
-  
-
 
   return (
   <>
     {/* Form 1 = Personal Information */}
-
-
-
     <form>
       {step === 1 && (
         <div className="center-text">
@@ -177,6 +165,8 @@ doc.save("cv.pdf");
         </div>
       )}
     </form>
+
+
 
     {/* Form 2 = Education */}
     {step === 2 && (
@@ -213,7 +203,7 @@ doc.save("cv.pdf");
        <br />
        <br />
        <button type="button" onClick={prevStep}>Previous</button>
-       <button type="button" onClick={nextStep}></button>
+       <button type="button" onClick={nextStep}>Next</button>
        <br />
        </form>
     )}
@@ -222,6 +212,67 @@ doc.save("cv.pdf");
 
 
     {/* Form 3 = Experience */}
+    {step === 3 && (
+      <form className="center-text">
+        <h1>Tell us about your most recent job</h1>
+        <h4>Job Title</h4>
+        <input id="jobTitle" type="text" value={formData.jobTitle} onChange={handleInputChange} required placeholder="e.g Sale Associate " />
+        <h4>Employer</h4>   
+        <input id="employer" type="text" value={formData.employer} onChange={handleInputChange} required placeholder="e.g ACME Technologies" />
+        <h4>Location</h4>
+        <input id="jobLocation" type="text" value={formData.jobLocation} onChange={handleInputChange} placeholder="e.g Lahore, Punjab" />
+        <h4>Start Date</h4>
+        <input type="date" id="startDate" value={formData.startDate} onChange={handleInputChange} required/>
+        <h4>End Date</h4>
+        <input type="date" id="endDate" value={formData.endDate} onChange={handleInputChange} />
+        <br />
+        <br />
+        <input type="checkbox" id="isCurrentlyWorking" checked={formData.isCurrentlyWorking} onChange={handleInputChange} />
+        <label htmlFor="isCurrentlyWorking"> I currently work here</label>
+        <br />
+        <br />
+        <button type="button" onClick={prevStep}>Previous</button>
+        <button type="button" onClick={nextStep}>Next</button>
+      </form>
+    )}
+ 
+
+
+
+ 
+{/*Form 4 = Skills */}
+{step === 4 && (
+    <form className="center-text">
+    <h1>Skills</h1>
+    <label htmlFor="skills">  Select Your Skills  </label>
+    <select  id="skills" value={formData.skills} onChange={handleInputChange} required>
+     <option value="Javascript">Javascript</option>
+     <option value="Python">Python</option>
+     <option value="HTML">HTML</option>
+     <option value="CSS">CSS</option>
+     <option value="React">React</option>
+     <option value="Node.js">Node.js</option>
+     <option value="UI/UX Design">UI/UX Design</option>
+     <option value="CyberSecurity">CyberSecurity</option>
+     <option value="Sales Associative">Sales Associative</option>
+     <option value="Administrative Assistant">Administrative Assistant</option>
+     <option value="Data Entry">Data Entry</option>
+     <option value="Sales Management">Sales Management</option>
+     <option value="Market Research">Market Research</option>
+     <option value="Lead Generation">Lead Generation</option>
+     <option value="Sales Forecasting">Sales Forecasting</option>
+     <option value="Customer Relationship Management (CRM)">Customer Relationship Management (CRM)</option>
+     <option value="Sales Strategy">Sales Strategy</option>
+     <option value="Product Knowdledge">Product Knowdledge</option>
+    </select>
+    <br />
+    <br />
+    <button type="button" onClick={prevStep}>Previous</button>
+    <button type="button" onClick={handleSubmit}>Submit</button>
+    </form>
+  )}
+
+    
   {step === 5 && (
     <div className="center-text">
       <h1>Curriculum Vitae</h1>
