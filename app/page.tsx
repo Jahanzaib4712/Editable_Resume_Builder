@@ -82,11 +82,20 @@ const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelec
     let currentY = 10;
   
 // Add Name and Contact information 
+
+if (formData.image) {
+    const imgWidth = 30; // Image width in the PDF
+    const imgHeight = 30; // Image height in the PDF
+    doc.addImage(formData.image, "JPEG", marginX, currentY, imgWidth, imgHeight);
+    currentY += imgHeight + 10; // Adjusting the Y position after the image
+  }
+
+
 doc.setFontSize(18);
 doc.text(`${formData.firstName}${formData.lastName}`,marginX,currentY);
 currentY += 10;
 doc.setFontSize(12);
-doc.text(`${formData.city}|${formData.email}|${formData.phoneNumber}`,marginX, currentY);
+doc.text(`${formData.city} | ${formData.email} | ${formData.phoneNumber}`,marginX, currentY);
 currentY += 20;
 
 
@@ -131,7 +140,7 @@ currentY += 10;
 doc.text("With a strong passion for continuous growth and development, I bring valuable skills to any role.", marginX, currentY);
 currentY += 10;
 doc.text("My focus is on leveraging my expertise to contribute effectively to team goals and drive positive results.",marginX , currentY);
-doc.save("cv.pdf");
+doc.save(`${formData.firstName}${formData.lastName},_CV.pdf`);
 
    }
     
@@ -284,16 +293,15 @@ doc.save("cv.pdf");
     <div className="center-text">
       <h1>Curriculum Vitae</h1>
       <div className="cv-header">
-        {formData.image && (
-          <div>
-            <h4>Profile Picture:</h4>
-            <img src={formData.image} alt="Profile Picture" style={{width: "110px", borderRadius:"50%"}} />
-
-          </div>
-        )}
+       {formData.image && (
         <div>
-          <h2>{formData.firstName}|{formData.lastName}</h2>
-          <p>{formData.city}|{formData.email}|{formData.phoneNumber}</p>
+          <h4>Profile Picture:</h4>
+          <img src={formData.image} alt="Profile Picture" style={{width: "110px", borderRadius:"50%"}} />
+        </div>
+      )}
+        <div>
+          <h2> {formData.firstName} | {formData.lastName} </h2>
+          <p>{formData.city} | {formData.email} | {formData.phoneNumber}</p>
 
         </div>
       </div>
