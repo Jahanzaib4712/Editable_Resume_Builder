@@ -27,8 +27,10 @@ export default function MultiStepForm() {
     endDate: "",
     isCurrentlyWorking: false,
     skills: ""
+   
   });
 
+  
    const nextStep = () => setStep(step + 1);
    const prevStep = () => setStep(step - 1);
 
@@ -110,7 +112,7 @@ currentY += 20;
 
 
 doc.setFontSize(14);
-doc.text("experience",marginX, currentY);;
+doc.text("Experience",marginX, currentY);;
 currentY += 10;
 doc.setFontSize(12);
 doc.text(`Job Title : ${formData.jobTitle}`, marginX , currentY);
@@ -169,10 +171,10 @@ doc.save(`${formData.firstName}${formData.lastName},_CV.pdf`);
           <br />
           <br />
           <h4>Enter Your Contact Number</h4>
-          <input type="number" id="phoneNumber" value={formData.phoneNumber} onChange={handleInputChange}  required placeholder="e.g +923323847854"/>
+          <input type="tel" id="phoneNumber" value={formData.phoneNumber} onChange={handleInputChange}  required placeholder="e.g +923323847854"/>
           <br />
           <div className="file-upload-container">
-          <h4>Upload Your Profile Picture here.</h4>
+          <h4>Upload Your Profile Picture here</h4>
           <input type="file" accept="image/*" onChange={handleFileChange} />
            </div>
           <br />
