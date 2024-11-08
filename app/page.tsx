@@ -1,7 +1,7 @@
 // import Image from "next/image";
 "use client";
 import { useState } from "react";
-import {jsPDF} from 'jspdf'
+// import {jsPDF} from 'jspdf'
 // import { read } from "fs";
 // import next from "next/types";
 
