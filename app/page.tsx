@@ -41,7 +41,7 @@ const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelec
   
   // Handle checkbox separately
   if (type === 'checkbox') {
-    const checked = (event.target as HTMLInputElement).checked; // Explicitly cast to HTMLInputElement
+    const checked = (event.target as HTMLInputElement).checked; 
     setFormData(prevData => ({
       ...prevData,
       [id]: checked
@@ -333,7 +333,7 @@ doc.save(`${formData.firstName}${formData.lastName},_CV.pdf`);
       <br />
       <br />
 
-      <button onClick={prevStep}>Edit Details</button>
+      {/* <button onClick={prevStep}>Edit Details</button> */}
       <button onClick={handleDownload}>Download CV</button>
     </div>
   )}
