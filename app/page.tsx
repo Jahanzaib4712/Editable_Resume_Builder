@@ -78,73 +78,73 @@ const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelec
     }
    }
 
-   function handleDownload() {
-    const doc = new jsPDF();
-    const marginX = 10;
-    let currentY = 10;
+//    function handleDownload() {
+//     const doc = new jsPDF();
+//     const marginX = 10;
+//     let currentY = 10;
   
-// Add Name and Contact information 
+// // Add Name and Contact information 
 
-if (formData.image) {
-    const imgWidth = 30; // Image width in the PDF
-    const imgHeight = 30; // Image height in the PDF
-    doc.addImage(formData.image, "JPEG", marginX, currentY, imgWidth, imgHeight);
-    currentY += imgHeight + 10; // Adjusting the Y position after the image
-  }
-
-
-doc.setFontSize(18);
-doc.text(`${formData.firstName}${formData.lastName}`,marginX,currentY);
-currentY += 10;
-doc.setFontSize(12);
-doc.text(`${formData.city} | ${formData.email} | ${formData.phoneNumber}`,marginX, currentY);
-currentY += 20;
+// if (formData.image) {
+//     const imgWidth = 30; // Image width in the PDF
+//     const imgHeight = 30; // Image height in the PDF
+//     doc.addImage(formData.image, "JPEG", marginX, currentY, imgWidth, imgHeight);
+//     currentY += imgHeight + 10; // Adjusting the Y position after the image
+//   }
 
 
-doc.setFontSize(14);
-doc.text("Education",marginX,currentY);
-currentY += 10;
-doc.setFontSize(12);
-doc.text(`Degree:${formData.selectDegree}`, marginX, currentY);
-currentY += 10;
-doc.text(`institute:${formData.schoolName}`,marginX, currentY);
-currentY += 20;
+// doc.setFontSize(18);
+// doc.text(`${formData.firstName}${formData.lastName}`,marginX,currentY);
+// currentY += 10;
+// doc.setFontSize(12);
+// doc.text(`${formData.city} | ${formData.email} | ${formData.phoneNumber}`,marginX, currentY);
+// currentY += 20;
 
 
-doc.setFontSize(14);
-doc.text("Experience",marginX, currentY);;
-currentY += 10;
-doc.setFontSize(12);
-doc.text(`Job Title : ${formData.jobTitle}`, marginX , currentY);
-currentY += 10;
-doc.text(`Employer: ${formData.employer}`, marginX, currentY);
-currentY += 10;
-doc.text(`Location: ${formData.jobLocation}`, marginX , currentY);
-currentY += 10;
-doc.text(`Duration:${formData.startDate} to ${formData.endDate} ${formData.isCurrentlyWorking ?"(Currently Working)": ""}`, marginX, currentY);
-currentY += 20;
+// doc.setFontSize(14);
+// doc.text("Education",marginX,currentY);
+// currentY += 10;
+// doc.setFontSize(12);
+// doc.text(`Degree:${formData.selectDegree}`, marginX, currentY);
+// currentY += 10;
+// doc.text(`institute:${formData.schoolName}`,marginX, currentY);
+// currentY += 20;
 
 
-doc.setFontSize(14);
-doc.text("Skills", marginX, currentY);
-currentY += 10;
-doc.setFontSize(12);
-doc.text(`${formData.skills}`, marginX , currentY);
-currentY += 20;
+// doc.setFontSize(14);
+// doc.text("Experience",marginX, currentY);;
+// currentY += 10;
+// doc.setFontSize(12);
+// doc.text(`Job Title : ${formData.jobTitle}`, marginX , currentY);
+// currentY += 10;
+// doc.text(`Employer: ${formData.employer}`, marginX, currentY);
+// currentY += 10;
+// doc.text(`Location: ${formData.jobLocation}`, marginX , currentY);
+// currentY += 10;
+// doc.text(`Duration:${formData.startDate} to ${formData.endDate} ${formData.isCurrentlyWorking ?"(Currently Working)": ""}`, marginX, currentY);
+// currentY += 20;
 
 
-doc.setFontSize(14);
-doc.text("Bio" , marginX, currentY);
-currentY += 20;
-doc.setFontSize(12);
-doc.text("I am a motivated and detail-oriented professional with a solid background in my field.", marginX , currentY);
-currentY += 10;
-doc.text("With a strong passion for continuous growth and development, I bring valuable skills to any role.", marginX, currentY);
-currentY += 10;
-doc.text("My focus is on leveraging my expertise to contribute effectively to team goals and drive positive results.",marginX , currentY);
-doc.save(`${formData.firstName}${formData.lastName},_CV.pdf`);
+// doc.setFontSize(14);
+// doc.text("Skills", marginX, currentY);
+// currentY += 10;
+// doc.setFontSize(12);
+// doc.text(`${formData.skills}`, marginX , currentY);
+// currentY += 20;
 
-   }
+
+// doc.setFontSize(14);
+// doc.text("Bio" , marginX, currentY);
+// currentY += 20;
+// doc.setFontSize(12);
+// doc.text("I am a motivated and detail-oriented professional with a solid background in my field.", marginX , currentY);
+// currentY += 10;
+// doc.text("With a strong passion for continuous growth and development, I bring valuable skills to any role.", marginX, currentY);
+// currentY += 10;
+// doc.text("My focus is on leveraging my expertise to contribute effectively to team goals and drive positive results.",marginX , currentY);
+// doc.save(`${formData.firstName}${formData.lastName},_CV.pdf`);
+
+//    }
     
 
 
