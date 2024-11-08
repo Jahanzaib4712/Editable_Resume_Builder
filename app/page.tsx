@@ -333,8 +333,8 @@ doc.save(`${formData.firstName}${formData.lastName},_CV.pdf`);
       <br />
       <br />
 
-      {/* <button onClick={prevStep}>Edit Details</button> */}
-      <button onClick={handleDownload}>Download CV</button>
+      <button onClick={prevStep}>Edit Details</button>
+      {/* <button onClick={handleDownload}>Download CV</button> */}
     </div>
   )}
 
